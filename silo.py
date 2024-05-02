@@ -1,7 +1,7 @@
 import pdfplumber
 import pandas as pd
 
-def silo_extaction(filename):
+def silo_extaction(filename,data):
     # Open the PDF file
     with pdfplumber.open(filename) as pdf:
         # Initialize an empty list to store extracted data
@@ -11,7 +11,7 @@ def silo_extaction(filename):
         for page in pdf.pages:
             # Extract text from the page
             text = page.extract_text()
-
+            text = text.replace("\x00", "fi")
             # Split the text into lines
             lines = text.split('\n')
             #print(lines)
@@ -36,4 +36,8 @@ def silo_extaction(filename):
             end3=extracted_data.index("Requisite rules")
             end=min(end,end1,end2,end3)
         silo=extracted_data[indx:end]
-        return silo
+        for index, item in enumerate(extracted_data):
+            if data in item:
+                break
+        s_name = ' '.join(extracted_data[2:index])
+        return silo,s_name
