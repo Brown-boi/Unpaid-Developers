@@ -2,8 +2,9 @@ import pdf_download as pd
 import Extract_subject_list as esl
 import write_silo as ws
 import pandas as p
+import database as db
 courses=['SBCS','SBIT','SBCY']
-#courses=['SBCY']
+#courses=['SBIT']
 import os
 for c in courses:
     print('Extracting data for '+c + ' Course')
@@ -55,6 +56,9 @@ for c in courses:
                 s_link.append(l)
             Spec['Subject']=s_name
             Spec['Link']=s_link
+            cur, connection = db.database_connection()
+            m=m.replace(" ", "_").lower()
+            db.major(cur,connection,m,Spec)
             Spec.to_excel(excel_writer, sheet_name=m, index=False)
             flag=1
         else:
@@ -72,8 +76,11 @@ for c in courses:
     outcome.to_excel(excel_writer, sheet_name='Comparision', index=False)
     data['Subject'] = m_name
     data['Link'] = m_link
+    cur, connection = db.database_connection()
+    db.major(cur,connection,c,data)
     data.to_excel(excel_writer,sheet_name='Core_Subjects', index=False)
     file.close()
     excel_writer.save()
+    #connection.close()
     print('Sucessfully Extracted data for '+ c + ' Course')
     print("please find the data at this location: ",directory_path)

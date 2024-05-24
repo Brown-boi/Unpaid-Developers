@@ -1,6 +1,7 @@
 import pdfplumber
 import pandas as pd
-def comparision_extraction(extracted_data):
+import database as db
+def comparision_extraction(extracted_data,data):
         index=extracted_data.index("Location(s)")
         loc=extracted_data[index:index+2]
         index=extracted_data.index("Course duration (full time)")
@@ -27,6 +28,9 @@ def comparision_extraction(extracted_data):
             cop=["Course duration (part time)","Not Available"]
         cre=extracted_data[4]
         credit=["Course credit points ",cre[5:]]
+        cur,con=db.database_connection()
+        db.comparision(cur,con,(data,exchange[1],loc[1],co[1],cop[1],credit[1]))
+        db.jobs_list(cur,con,data,outcome[1:],major[1:])
         return [outcome,major,exchange,loc,co,cop,credit]
 
 def major_job_list(extracted_data,data):

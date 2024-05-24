@@ -39,7 +39,7 @@ def extract_pdf_to_excel(pdf_path,data,courses):
                 break
         s_name = ' '.join(extracted_data[2:index])
         if data in courses:
-            outcome=com.comparision_extraction(extracted_data)
+            outcome=com.comparision_extraction(extracted_data,data)
             #col=outcome.pop(0)
         else:
             outcome=com.major_job_list(extracted_data,s_name.upper())
