@@ -1,10 +1,10 @@
 import pymysql
 def database_connection():
-    host = '13.211.131.22'
-    user = 'unpaiddevelopers'
-    password='002@Latrobe'
+    host = 'IP'
+    user = 'USERNAME'
+    password='PASSWORD'
     #password = input("Enter your password")
-    database = 'unpaiddevelopersdb'
+    database = 'DATABASE NAME'
     connection = pymysql.connect(host=host,
                                  user=user,
                                  password=password,
