@@ -58,8 +58,8 @@ You will also need the Chrome WebDriver to run Selenium. You can download it fro
 Start by cloning the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/course-data-extraction.git
-cd course-data-extraction
+git clone https://github.com/Brown-boi/Unpaid-Developers.git
+cd Unpaid-Developers
 ```
 
 ### Step 2: Set Up the Database
