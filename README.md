@@ -9,7 +9,7 @@ This project automates the extraction of course-related information (such as sub
 - Extracts key course information such as subject codes, credit points, and subject names.
 - Compares and stores the extracted data in a MySQL database.
 - Generates detailed subject information, including links and descriptions.
-- Saves the extracted and processed data into Excel files.
+- Saves the extracted and processed data into Excel files and MySQL database.
   
 ## Directory Structure
 
@@ -151,9 +151,7 @@ When the `Main.py` script is executed, the following will occur:
 
 If you'd like to contribute to this project, feel free to fork the repository, make changes, and create a pull request. Please ensure your changes are well-documented, and follow best practices for Python coding.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
